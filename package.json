@@ -1,0 +1,32 @@
+{
+  "name": "optimogame",
+  "version": "1.0.0",
+  "description": "Optimo Dev task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gjarzabek/OptimoGame.git"
+  },
+  "keywords": [],
+  "author": "Grzegorz Jarząbek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gjarzabek/OptimoGame/issues"
+  },
+  "homepage": "https://github.com/Gjarzabek/OptimoGame#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.0",
+    "typescript": "^4.8.3",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "pixi.js": "^6.5.3"
+  }
+}
