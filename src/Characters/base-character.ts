@@ -1,6 +1,6 @@
 import {AnimatedSprite, ObservablePoint} from 'pixi.js'
 import { CHARACTER_STATE } from './character.types';
-import {INPUT_TYPE} from 'UserInputs/inputs.types'
+import { KEY_INPUT_TYPE} from 'UserInputs/user-inputs.types'
 
 export default abstract class BaseCharacter {
     
@@ -30,5 +30,5 @@ export default abstract class BaseCharacter {
     }
 
     public abstract getCharacterName(): string;
-    public abstract update(inputs: INPUT_TYPE[]): void;
+    public abstract update(inputs: KEY_INPUT_TYPE[]): void;
 }
