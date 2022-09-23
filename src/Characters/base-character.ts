@@ -1,18 +1,21 @@
 import {AnimatedSprite, ObservablePoint} from 'pixi.js'
-import { CHARACTER_STATE } from './character.types';
-import { KEY_INPUT_TYPE} from 'UserInputs/user-inputs.types'
+import { KEY_INPUT_TYPE } from 'UserInputs/user-inputs.types';
+import { CHARACTER_STATE, MOVE_DIRECTION_X } from './character.enum';
+import { IBaseCharacter, ICharacterConfig } from './character.types';
 
-export default abstract class BaseCharacter {
+export default abstract class BaseCharacter implements IBaseCharacter {
     
     private currentState: CHARACTER_STATE;
-    private sprites: Map<CHARACTER_STATE, AnimatedSprite> = new Map<CHARACTER_STATE, AnimatedSprite>();
+    private moveDirection: MOVE_DIRECTION_X;
 
-    constructor() {
+    constructor(spawn_position: ObservablePoint) {
         this.currentState = CHARACTER_STATE.STANDING
+        this.moveDirection = MOVE_DIRECTION_X.IN_PLACE
+        this.position = spawn_position
     }
 
     get currentSprite(): AnimatedSprite {
-        return this.sprites.get(this.currentState);
+        return this.getSprites().get(this.currentState);
     }
 
     get position(): ObservablePoint {
@@ -29,6 +32,7 @@ export default abstract class BaseCharacter {
         this.position = old_position
     }
 
-    public abstract getCharacterName(): string;
     public abstract update(inputs: KEY_INPUT_TYPE[]): void;
+    public abstract getCharacterConfig(): ICharacterConfig;
+    public abstract getSprites(): Map<CHARACTER_STATE, AnimatedSprite>
 }

@@ -7,5 +7,4 @@ export interface IKeyHandler {
 
     callbackDown(): void,
     callbackUp(): void,
-    update(): void,
 }

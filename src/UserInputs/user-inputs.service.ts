@@ -8,7 +8,7 @@ export class UserInputsService {
         new KeyHandler(KEY_INPUT_TYPE.ARROW_RIGHT)
     ]
 
-    public static getKeyHandlerByType(key_type: KEY_INPUT_TYPE): KeyHandler {
+    public static getKeyHandlerByType(key_type: KEY_INPUT_TYPE): KeyHandler | undefined {
         return this.registeredInputs.find(el => el.key === key_type)
     }
 
@@ -20,18 +20,15 @@ export class UserInputsService {
         return this.registeredInputs.filter(el => el.recentlyChanged)
     }
 
-    public static update(): void {
-        for (const handler of UserInputsService.registeredInputs)
-            handler.update();
+    public static onKeyUpCallback(ev: KeyboardEvent): void {
+        const keyHandler = UserInputsService.getKeyHandlerByType(ev.key as KEY_INPUT_TYPE);
+        if (keyHandler !== undefined)
+            keyHandler.callbackUp();
     }
 
-    public onUpEvent(ev: KeyboardEvent): void {
+    public static onKeyDownCallback(ev: KeyboardEvent): void {
         const keyHandler = UserInputsService.getKeyHandlerByType(ev.key as KEY_INPUT_TYPE);
-        keyHandler.callbackUp();
-    }
-
-    public onDownEvent(ev: KeyboardEvent): void {
-        const keyHandler = UserInputsService.getKeyHandlerByType(ev.key as KEY_INPUT_TYPE);
-        keyHandler.callbackDown();       
+        if (keyHandler !== undefined)
+            keyHandler.callbackDown();
     }
 }

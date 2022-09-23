@@ -1,4 +1,4 @@
-import { KEY_INPUT_TYPE } from "../user-inputs.types";
+import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
 import { IKeyHandler } from "./key-handler.types";
 
 export class KeyHandler implements IKeyHandler {
@@ -14,19 +14,13 @@ export class KeyHandler implements IKeyHandler {
     }
 
     public callbackDown() {
-        if (!this.isActive)
-            this.isStateChanged = true;
+        this.isStateChanged = !this.isActive;
         this.isActive = true;
     }
 
     public callbackUp() {
-        if (this.isActive)
-            this.isStateChanged = true;
+        this.isStateChanged = this.isActive;
         this.isActive = false;
-    }
-
-    public update() {
-        this.isStateChanged = false;
     }
 
     get activated() {
