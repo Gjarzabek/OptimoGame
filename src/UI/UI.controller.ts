@@ -10,4 +10,16 @@ export class UiController {
         window.removeEventListener("keydown", UserInputsService.onKeyDownCallback);
         window.removeEventListener("keyup", UserInputsService.onKeyUpCallback);
     }
+
+    public static resizeCanvasTo() {
+        return window;
+    }
+
+    public static getWidth() {
+        return window.innerWidth;
+    }
+
+    public static getHeight() {
+        return window.innerHeight;
+    }
 }

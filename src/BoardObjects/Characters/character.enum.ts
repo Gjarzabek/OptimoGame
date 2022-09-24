@@ -1,5 +1,5 @@
 export enum CHARACTER_NAME {
-    VIKING = "Viking"
+    KNIGHT = "Knight"
 }
 
 export enum CHARACTER_STATE {
