@@ -3,7 +3,6 @@ import { BOARD_OBJECT } from "BoardObjects/base-board-object.types";
 import { GameplayHelper } from "Helpers/gameplay";
 import { PathBuilder } from "Helpers/path-builder";
 import { IPointData, LoaderResource, Sprite } from "pixi.js";
-import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
 import { BaseFallingObject } from "../base-falling-object";
 import { FOOD_CONFIG } from "./food.config";
 

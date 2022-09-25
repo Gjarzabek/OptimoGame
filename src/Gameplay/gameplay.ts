@@ -5,7 +5,7 @@ import { KnightCharacter } from "BoardObjects/Characters/Knight/knight-character
 import { Food } from "BoardObjects/FallingObject/Food/food";
 import { Ground } from "BoardObjects/Obstacles/ground";
 import { CollisionCalc } from "Helpers/collision-calc";
-import { Application, Graphics, Text } from "pixi.js";
+import { Application, Text } from "pixi.js";
 import { UiController } from "UI/UI.controller";
 import { UserInputsService } from "UserInputs/user-inputs.service";
 import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
@@ -108,7 +108,7 @@ export class Gameplay {
         this.boardObjectList = [];
 
         const gameOverText = new Text('Game Over', GameplayHelper.gameOverTextStyle)
-        const restartText = new Text('Click To Restart', GameplayHelper.restartTextStyle)
+        const restartText = new Text('Click Here To Restart', GameplayHelper.restartTextStyle)
         
         //@ts-ignore - container don't have interactive attribute in typescript
         restartText.interactive = true; restartText.on('click', () => {this.stageSetup()})        

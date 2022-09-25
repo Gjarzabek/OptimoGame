@@ -1,6 +1,6 @@
 import { BaseBoardObject } from 'BoardObjects/base-board-object';
 import { BOARD_OBJECT } from 'BoardObjects/base-board-object.types';
-import {AnimatedSprite, IPoint, IPointData, ObservablePoint, Point} from 'pixi.js'
+import {AnimatedSprite, IPointData, Point} from 'pixi.js'
 import { UiController } from 'UI/UI.controller';
 import { KEY_INPUT_TYPE } from 'UserInputs/user-inputs.types';
 import { CHARACTER_STATE, MOVE_DIRECTION_X } from './character.enum';

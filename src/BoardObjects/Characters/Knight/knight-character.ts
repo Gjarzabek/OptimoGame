@@ -1,9 +1,7 @@
-import { BaseBoardObject } from "BoardObjects/base-board-object";
 import { PathBuilder } from "Helpers/path-builder";
-import { AnimatedSprite, IPointData, LoaderResource, ObservablePoint, Texture } from "pixi.js";
-import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
+import { AnimatedSprite, IPointData, LoaderResource, Texture } from "pixi.js";
 import BaseCharacter from "../base-character";
-import { CHARACTER_NAME, CHARACTER_STATE } from "../character.enum";
+import { CHARACTER_STATE } from "../character.enum";
 import { ICharacterConfig } from "../character.types";
 import { KNIGHT_CONFIG } from "./knight.config";
 

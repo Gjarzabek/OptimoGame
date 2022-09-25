@@ -1,5 +1,5 @@
 import { BaseBoardObject } from "BoardObjects/base-board-object";
-import { IPointData, ObservablePoint, Sprite } from "pixi.js";
+import { IPointData } from "pixi.js";
 import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
 import { IBaseFallingObject, IFallingObjectConfig } from "./base-falling-object.types";
 
