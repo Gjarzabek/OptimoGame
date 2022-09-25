@@ -3,9 +3,6 @@ import { KEY_INPUT_TYPE } from "UserInputs/user-inputs.types";
 import { CHARACTER_STATE } from "./character.enum";
 
 export interface IBaseCharacter {
-    get position(): Point,
-    set position(point: Point),
-
     get sprites(): Map<CHARACTER_STATE, AnimatedSprite>
     get characterConfig(): ICharacterConfig;
     

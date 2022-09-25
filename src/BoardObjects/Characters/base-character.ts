@@ -20,20 +20,12 @@ export default abstract class BaseCharacter extends BaseBoardObject implements I
         this.moveDirection = MOVE_DIRECTION_X.IN_PLACE;
     }
 
-    public getSprite(): AnimatedSprite {
+    get sprite(): AnimatedSprite {
         return this.sprites.get(this.currentState);
     }
     
-    public getObjectType(): BOARD_OBJECT {
+    get objectType(): BOARD_OBJECT {
         return BOARD_OBJECT.CHARACTER
-    }
-
-    get position(): Point {
-        return this.getSprite().position
-    }
-
-    set position(point: IPointData) {
-        this.getSprite().position.copyFrom(point)
     }
 
     get characterState() {
@@ -76,6 +68,9 @@ export default abstract class BaseCharacter extends BaseBoardObject implements I
     }
 
     public update(inputs: KEY_INPUT_TYPE[]): boolean {
+        if (this.position.x < 0 || this.position.x > UiController.getWidth())
+            this.position.x = UiController.getWidth()/2
+
         const isArrowLeft = inputs.find(el => el === KEY_INPUT_TYPE.ARROW_LEFT) != undefined;
         const isArrowRight = inputs.find(el => el === KEY_INPUT_TYPE.ARROW_RIGHT) != undefined;
 

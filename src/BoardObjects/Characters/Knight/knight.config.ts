@@ -3,7 +3,7 @@ import { ICharacterConfig } from "../character.types";
 
 export const KNIGHT_CONFIG: ICharacterConfig = {
     name: CHARACTER_NAME.KNIGHT,
-    move_speed: 8,
+    move_speed: 10,
     assets: [
         {
             character_state: CHARACTER_STATE.STANDING,

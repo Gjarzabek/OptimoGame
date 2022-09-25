@@ -1,5 +1,5 @@
 export enum BOARD_OBJECT {
     FOOD = 'Food',
     CHARACTER = 'Character',
-    OBSTACLE = 'Obstacle'
+    GROUND = 'Ground'
 }

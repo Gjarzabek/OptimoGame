@@ -17,11 +17,11 @@ export class Ground extends BaseBoardObject {
         this._graphics.visible = true;
     }
     
-    getObjectType(): BOARD_OBJECT {
-        return BOARD_OBJECT.OBSTACLE;
+    get objectType(): BOARD_OBJECT {
+        return BOARD_OBJECT.GROUND;
     }
     
-    getSprite(): Graphics {
+    get sprite(): Graphics {
         return this._graphics
     }
     
