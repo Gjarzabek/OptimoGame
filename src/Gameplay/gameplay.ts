@@ -35,11 +35,6 @@ export class Gameplay {
 
         this.lifesTextSprite.position.copyFrom({x: 20, y: 20})
         this.scoreTextSprite.position.copyFrom({x: 20, y: 50})
-        this.scoreTextSprite.visible = true;
-
-        this.app.loader.add(GameplayHelper.assetLoadPaths).load(
-           ()=>this.launch()
-        )
     }
 
     get score() {
@@ -48,7 +43,7 @@ export class Gameplay {
 
     set score(val: number) {
         this._score = val;
-        this.scoreTextSprite.text = `Score: ${this._score}`
+        this.scoreTextSprite.text = `Score: ${this.score}`
     }
 
     get lifes() {
@@ -57,7 +52,7 @@ export class Gameplay {
 
     set lifes(val: number) {
         this._lifes = val;
-        this.lifesTextSprite.text = `Lifes: ${this._lifes}`
+        this.lifesTextSprite.text = `Lifes: ${this.lifes}`
     }
 
     get stageWidth() {
@@ -69,9 +64,13 @@ export class Gameplay {
     }
 
     public launch() {
-        UiController.addElement(this.app.view)
-        this.stageSetup();
-        this.app.ticker.add((delta: number)=>{this.gameLoop(delta);});
+        this.app.loader.add(GameplayHelper.assetLoadPaths).load(
+            ()=>{
+                UiController.addElement(this.app.view)
+                this.stageSetup();
+                this.app.ticker.add((delta: number)=>{this.gameLoop(delta);});
+            }
+         )
     }
 
     private stageSetup() {
@@ -88,14 +87,9 @@ export class Gameplay {
             new Ground({x: 0, y: this.stageHeight-5}, {x: this.stageWidth, y: 100})
         );
         this.addObjectToStage(
-            new Ground({x: 0, y: this.stageHeight-5}, {x: this.stageWidth, y: 100})
-        );
-        this.addObjectToStage(
             new KnightCharacter({x: this.stageWidth/2, y: this.stageHeight - 45}, this.app.loader.resources)
         );
-        this.addObjectToStage(
-            new Food({x: this.stageWidth/2, y: 0}, this.app.loader.resources)
-        );
+
 
         this.app.start();
     }
@@ -132,8 +126,14 @@ export class Gameplay {
     }
 
     private removeObjectFromStage(obj: BaseBoardObject) {
-        this.app.stage.removeChild(obj.sprite)
-        obj.sprite.destroy();
+        if (obj.objectType === BOARD_OBJECT.CHARACTER) {
+            this.app.stage.removeChild(...(obj as BaseCharacter).sprites.values());
+            (obj as BaseCharacter).sprites.forEach(el => el.destroy())
+        }
+        else {
+            this.app.stage.removeChild(obj.sprite)
+            obj.sprite.destroy();
+        }
     }
 
     private spawnFood() {

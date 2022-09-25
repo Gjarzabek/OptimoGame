@@ -3,7 +3,8 @@ import { UiController } from "UI/UI.controller";
 
 function main(): void {
     UiController.addEventListeaners();
-    new Gameplay();
+    const game = new Gameplay();
+    game.launch();
 }
 
 main();
