@@ -2,10 +2,13 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "CommonJS",
-
-        "baseUrl": "src/",
-        // "paths": {
-            // "@/src/*" : ["src/*"]
-        // }
+        "baseUrl": ".",
+        "paths": {
+            "BoardObjects/*": ["src/BoardObjects/*"],
+            "Gameplay/*": ["src/Gameplay/*"],
+            "Helpers/*": ["src/Helpers/*"],
+            "UI/*": ["src/UI/*"],
+            "UserInputs/*": ["src/UserInputs/*"],
+        }
     }
 }

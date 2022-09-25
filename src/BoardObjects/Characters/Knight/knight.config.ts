@@ -3,7 +3,7 @@ import { ICharacterConfig } from "../character.types";
 
 export const KNIGHT_CONFIG: ICharacterConfig = {
     name: CHARACTER_NAME.KNIGHT,
-    move_speed: 1,
+    move_speed: 8,
     assets: [
         {
             character_state: CHARACTER_STATE.STANDING,
@@ -14,13 +14,13 @@ export const KNIGHT_CONFIG: ICharacterConfig = {
         {
             character_state: CHARACTER_STATE.RUN_LEFT,
             animation_name: 'left',
-            animation_speed: 0.15,
+            animation_speed: 0.2,
             frames_n: 6,
         },
         {
             character_state: CHARACTER_STATE.RUN_RIGHT,
             animation_name: 'right',
-            animation_speed: 0.15,
+            animation_speed: 0.2,
             frames_n: 6,
         }
     ],

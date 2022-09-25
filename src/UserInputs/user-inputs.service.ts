@@ -12,12 +12,12 @@ export class UserInputsService {
         return this.registeredInputs.find(el => el.key === key_type)
     }
 
-    public static activatedInputs(): KeyHandler[] {
-        return this.registeredInputs.filter(el => el.activated)
+    public static activatedInputs(): KEY_INPUT_TYPE[] {
+        return this.registeredInputs.filter(el => el.activated).map(el => el.key);
     }
 
-    public static recentlyChangedInputs(): KeyHandler[] {
-        return this.registeredInputs.filter(el => el.recentlyChanged)
+    public static recentlyChangedInputs(): KEY_INPUT_TYPE[] {
+        return this.registeredInputs.filter(el => el.recentlyChanged).map(el => el.key);
     }
 
     public static onKeyUpCallback(ev: KeyboardEvent): void {

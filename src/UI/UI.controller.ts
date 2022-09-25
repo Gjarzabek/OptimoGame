@@ -22,4 +22,8 @@ export class UiController {
     public static getHeight() {
         return window.innerHeight;
     }
+
+    public static addElement(el: HTMLCanvasElement) {
+        document.body.appendChild(el);
+    }
 }

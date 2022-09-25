@@ -1,12 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+function srcPath(subdir) {
+    return path.join(__dirname, "src", subdir);
+}
+
 module.exports = {
 
     mode: 'production',
 
-    entry: './src/main.ts',
-
+    entry: './main.ts',
+    
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
@@ -14,6 +18,13 @@ module.exports = {
 
     resolve: {
         extensions: [ '.ts', '.js' ],
+        alias: {
+            BoardObjects: srcPath('BoardObjects'),
+            Gameplay: srcPath('Gameplay'),
+            Helpers: srcPath('Helpers'),
+            UI: srcPath('UI'),
+            UserInputs: srcPath('UserInputs'),
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -29,5 +40,8 @@ module.exports = {
                 exclude: /node_modules/,
             }
         ]
+    },
+    performance: {
+        hints: false
     }
 };
